@@ -49,17 +49,15 @@ class ServerThread extends Thread {
             System.out.println("Client "+clientCounter+" connected");
             while (true) {
 
+                in = new BufferedReader(new InputStreamReader(fromclient.getInputStream()));
+                out = new PrintWriter(fromclient.getOutputStream(), true);
+                String input, output;
+
                 try {
                     //fromclient = server.accept();
                     System.out.printf("Port: %d\nClient number: %d\n", fromclient.getPort(), clientCounter);
-
-                    in = new BufferedReader(new InputStreamReader(fromclient.getInputStream()));
-                    out = new PrintWriter(fromclient.getOutputStream(), true);
-                    String input, output;
-
-                    //fromclient.setSoTimeout(timeout);
+                    fromclient.setSoTimeout(timeout);
                     out.print(timeout);
-
                     System.out.println("Wait for messages");
                     while (true) {
                         input = in.readLine();
@@ -77,8 +75,13 @@ class ServerThread extends Thread {
                     System.out.printf("Request timeout. Client %d disconnected\n", clientCounter);
                     return;
                 }
+                finally {
+                    if (!fromclient.isConnected()) {
+                        System.out.printf("Client %d disconnected\n",clientCounter);
+                        control.closeSession(out, in);
+                    }
+                }
             }
-           // control.closeConnection(fromclient, server);
 
         } catch (Exception e) {
             System.out.println("Error: " + e.toString());
