@@ -49,7 +49,7 @@ public class Constructing extends Thread {
     public void buildItem(Building building) {
         building.setStatus(Status.BUILDING);
 
-        response.print("Constructing "+building.getType()+" started...\n");
+        //response.print("Constructing "+building.getType()+" started...\n");
 
         String res="";
         for (Map.Entry entry : resources.getResources().entrySet()) {
@@ -67,7 +67,7 @@ public class Constructing extends Thread {
         building.setStatus(Status.DONE);
         System.out.println("Constructing of "+building.getType()+" building completed");
 
-        response.print("Constructing "+building.getType()+" complete\n");
+        response.println("Constructing "+building.getType()+" complete\n");
 
     }
 
