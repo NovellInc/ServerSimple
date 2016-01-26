@@ -59,10 +59,9 @@ class ServerThread extends Thread {
                 String input, output;
 
                 try {
-                    //client = server.accept();
                     System.out.printf("Port: %d\nClient number: %d\n", client.getPort(), clientCounter);
                     client.setSoTimeout(timeout);
-                    //out.print(timeout);
+                    out.print(timeout);
                     System.out.println("Wait for messages");
                     while (true) {
                         input = in.readLine();
@@ -77,9 +76,11 @@ class ServerThread extends Thread {
                             }
                             case "house": {
                                 resources = new Resources();
+                                //out.print("Building...");
                                 resources.addResource(GameControl.ResourcesList.MEET.toString(), 10);
                                 resources.addResource(ResourcesList.WATER.toString(), 10);
                                 new Constructing(client, out, clientCounter, 1000, BuildingType.LIVING, 5000, resources, Status.BUILDING, 100).start();
+                                //out.println("Complete");
                                 break;
                             }
                             case "civil": {
@@ -101,7 +102,7 @@ class ServerThread extends Thread {
                     }
 
                 } catch (IOException e) {
-                    System.out.printf("Request timeout. Client %d disconnected\n", clientCounter);
+                    System.out.printf("Client %d disconnected\n", clientCounter);
                     return;
                 }
                 finally {
