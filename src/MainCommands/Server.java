@@ -11,7 +11,7 @@ import java.net.Socket;
 public class Server {
 
     public static final int PORT = 4444;
-    public static final int timeout = 10000; //в миллисекундах, 0 - бесконечность
+    public static final int timeout = 0; //в миллисекундах, 0 - бесконечность
 
     public static void main(String[] args) throws IOException {
         ServerSocket server = new ServerSocket(PORT);

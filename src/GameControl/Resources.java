@@ -1,62 +1,24 @@
 package GameControl;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by Omelchuk.Roman on 25.01.2016.
  */
-public enum Resources {
+public class Resources {
 
-    //region Extracted
-    // Ископаемые ресурсы
+    private Map<String, Integer> resources = new HashMap<String, Integer>();
 
-        //Глина
-        CLAY,
+    public Map<String, Integer> getResources() {
+        return resources;
+    }
 
-        //Уголь
-        COAL,
+    public void setResources(Map<String, Integer> resources) {
+        this.resources = resources;
+    }
 
-        //Железо
-        IRON,
-
-        //Нефть
-        OIL,
-
-        //Бензин
-        PETROL,
-
-    //endregion
-
-    //region Cultivated
-    //Выращиваемые ресурсы
-
-        //Зерно
-        GRAIN,
-
-        //Мясо
-        MEET,
-
-        //Древесина
-        WOOD,
-
-        //Шерсть
-        WOOL,
-
-    //endregion
-
-    //region Produced
-
-        //Электричество
-        ELECTRICITY,
-
-        //Сталь
-        STEEL,
-
-
-
-    //endregion
-
-    //Вода
-    WATER
-
-
-
+    public void addResource(String resource, Integer amount) {
+        this.resources.put(resource,amount);
+    }
 }
