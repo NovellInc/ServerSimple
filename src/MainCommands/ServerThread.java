@@ -87,7 +87,7 @@ class ServerThread extends Thread {
                                 resources = new Resources();
                                 resources.addResource(ResourcesList.ELECTRICITY.toString(), 50);
                                 resources.addResource(ResourcesList.WOOD.toString(), 10);
-                                new Constructing(client, out, clientCounter, 1000, BuildingType.LIVING, 5000, resources, Status.BUILDING, 100).start();
+                                new Constructing(client, out, clientCounter, 1000, BuildingType.CIVIL, 8000, resources, Status.BUILDING, 100).start();
                                 break;
                             }
                             case "enterprise": {

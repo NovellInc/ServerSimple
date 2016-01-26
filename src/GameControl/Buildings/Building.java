@@ -19,9 +19,9 @@ public class Building {
     private int max_settlers;
     //private ArrayList<ResourcesList> availableResources;
 
-    public Building(int level, BuildingType type, int cost, int time, Resources resources, Status status, int max_settlers/*, ArrayList<ResourcesList> availableResources*/) {
+    public Building(int level, String type, int cost, int time, Resources resources, Status status, int max_settlers/*, ArrayList<ResourcesList> availableResources*/) {
         this.level = level;
-        this.type = setType(type);
+        this.type = type;
         this.cost = cost;
         this.time = time;
         this.resources = resources;
@@ -36,10 +36,6 @@ public class Building {
 
     public int getCost() {
         return cost;
-    }
-
-    public String setType(BuildingType type) {
-        return this.type = type.toString();
     }
 
     public String getType() {

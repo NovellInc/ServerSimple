@@ -43,13 +43,13 @@ public class Constructing extends Thread {
     @Override
     public void run() {
         super.run();
-        buildItem(new Building(level, BuildingType.LIVING, cost, time, resources, status, max_settlers));
+        buildItem(new Building(level, type, cost, time, resources, status, max_settlers));
     }
 
     public void buildItem(Building building) {
         building.setStatus(Status.BUILDING);
 
-        //response.print("Constructing "+building.getType()+" started...\n");
+        response.println("Constructing "+building.getType()+" started...\n");
 
         String res="";
         for (Map.Entry entry : resources.getResources().entrySet()) {
@@ -60,6 +60,7 @@ public class Constructing extends Thread {
             try {
                 sleep(time / 10);
                 System.out.println(building.getType()+" building construction process: "+i*100000/time+"%");
+                //response.println(building.getType()+" building construction process: "+i*100000/time+"%");
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
