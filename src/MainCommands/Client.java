@@ -108,12 +108,14 @@ class Client extends Thread {
                                     for (Map.Entry entry : res.getResources().entrySet()) {
                                         r+=entry.getKey()+"-"+entry.getValue()+" ";
                                     }
-                                    out.println("Constructing started | Building type: " + player.getBuildings().get(index).getType() +
-                                                                    " | Cost: " + player.getBuildings().get(index).getCost() +
-                                                                    " | Level: " + player.getBuildings().get(index).getLevel() +
-                                                                    " | Max settlers: " + player.getBuildings().get(index).getMax_settlers() +
-                                                                    " | Required resources: " + r + "!");
+                                    output += "\n"+(index+1)+". "+
+                                              " | Building type: " + player.getBuildings().get(index).getType() +
+                                              " | Cost: " + player.getBuildings().get(index).getCost() +
+                                              " | Level: " + player.getBuildings().get(index).getLevel() +
+                                              " | Max settlers: " + player.getBuildings().get(index).getMax_settlers() +
+                                              " | Required resources: " + r + "!";
                                 }
+                                out.println(output);
                                 break;
                             }
                         }
