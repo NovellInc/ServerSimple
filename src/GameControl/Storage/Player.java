@@ -20,6 +20,16 @@ public class Player {
     private ArrayList<Building> buildings = new ArrayList<Building>();
     private int buildingAmount;
 
+    public Player(int level, int budget, int money, String nickName, BufferedImage avatar, int playerNumber, int buildingAmount) {
+        this.level = level;
+        this.budget = budget;
+        this.money = money;
+        this.nickName = nickName;
+        this.avatar = avatar;
+        this.playerNumber = playerNumber;
+        this.buildingAmount = buildingAmount;
+    }
+
     public Player(int level, int budget, int money, String nickName, BufferedImage avatar, int playerNumber, ArrayList<Building> building, int buildingAmount) {
         this.level = level;
         this.budget = budget;
@@ -84,8 +94,8 @@ public class Player {
     }
 
     public void addBuilding(Building building) {
-        buildingAmount++;
-        buildings.add(building);
+        this.buildingAmount++;
+        this.buildings.add(building);
     }
 
     public int getBuildingAmount() {

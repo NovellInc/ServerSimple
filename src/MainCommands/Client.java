@@ -37,7 +37,7 @@ class Client extends Thread {
     }
 
     public void run() {
-        Server.game.addPlayer(new Player(6, 20000, 0, "Player2", null, 2, null, 0));
+        Server.game.addPlayer(new Player(6, 20000, 0, "Player2", null, 2, 0));
         System.out.println("Created new Player\nNickname: "+Server.game.getPlayer(clientCounter - 1).getNickName()+
                                 " | Level: "+Server.game.getPlayer(clientCounter - 1).getLevel()+
                                 " | Budget: "+Server.game.getPlayer(clientCounter - 1).getBudget()+
@@ -108,12 +108,13 @@ class Client extends Thread {
                                     for (Map.Entry entry : res.getResources().entrySet()) {
                                         r+=entry.getKey()+"-"+entry.getValue()+" ";
                                     }
-                                    output += "\n"+(index+1)+". "+
-                                              " | Building type: " + player.getBuildings().get(index).getType() +
+                                    output += " || "+(index+1)+
+                                              ".Building type: " + player.getBuildings().get(index).getType() +
                                               " | Cost: " + player.getBuildings().get(index).getCost() +
                                               " | Level: " + player.getBuildings().get(index).getLevel() +
                                               " | Max settlers: " + player.getBuildings().get(index).getMax_settlers() +
-                                              " | Required resources: " + r + "!";
+                                              " | Required resources: " + r +
+                                              " || Status: "+player.getBuildings().get(index).getStatus()+" !";
                                 }
                                 out.println(output);
                                 break;

@@ -50,6 +50,8 @@ public class Constructing extends Thread {
 
     public void buildItem(Building building) {
         building.setStatus(Status.BUILDING);
+        Server.game.getPlayer(clientNumber-1).addBuilding(building);
+        int buildingNumber = Server.game.getPlayer(clientNumber-1).getBuildings().size()-1;
 
         System.out.println("Constructing house...");
         response.println("Constructing "+building.getType()+" started...\n");
@@ -72,7 +74,7 @@ public class Constructing extends Thread {
         building.setStatus(Status.DONE);
         System.out.println("Constructing of "+building.getType()+" building completed!");
 
-        Server.game.getPlayer(clientNumber-1).addBuilding(building);
+        Server.game.getPlayer(clientNumber-1).getBuildings().get(buildingNumber).setStatus(Status.DONE);
         response.println("Constructing "+building.getType()+" complete\n");
 
     }

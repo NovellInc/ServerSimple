@@ -50,6 +50,10 @@ public class Building {
         return resources;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
     public String setStatus(Status status) {
         return this.status = status.toString();
     }

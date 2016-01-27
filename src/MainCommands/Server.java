@@ -19,12 +19,12 @@ public class Server {
 
     public static void main(String[] args) throws IOException {
 
-        game = new Game();
-        game.initialize();
-
         ServerSocket server = new ServerSocket(PORT);
         // create server socket
         try {
+            game = new Game();
+            game.initialize();
+
             int clientCounter = 0;
             System.out.println("Server turned on");
             while(true) {
