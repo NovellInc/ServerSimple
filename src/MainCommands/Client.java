@@ -127,12 +127,6 @@ class Client extends Thread {
                     System.out.printf("Client %d disconnected\n", clientCounter);
                     return;
                 }
-                finally {
-                    if (!client.isConnected()) {
-                        //System.out.printf("Client %d disconnected\n",clientCounter);
-                        control.closeSession(out, in);
-                    }
-                }
             }
 
         } catch (Exception e) {
