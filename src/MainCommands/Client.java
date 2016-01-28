@@ -117,6 +117,7 @@ class Client extends Thread {
                                               " || Status: "+player.getBuildings().get(index).getStatus()+" !";
                                 }
                                 out.println(output);
+                                out.flush();
                                 break;
                             }
                         }

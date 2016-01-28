@@ -76,11 +76,12 @@ public class Constructing extends Thread {
 
         Server.game.getPlayer(clientNumber-1).getBuildings().get(buildingNumber).setStatus(Status.DONE);
         response.println("Constructing "+building.getType()+" complete\n");
+        response.flush();
 
     }
 
     public void stopbuildItem() {
-
+        this.interrupt();
     }
 
     public void destroyItem(int cost, int time) {
